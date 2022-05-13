@@ -1,0 +1,1 @@
+web: gunicorn pokemash2.wsgi --log-file -

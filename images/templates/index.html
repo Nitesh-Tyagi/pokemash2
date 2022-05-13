@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet'>
+    <title>PokéMash</title>
+    <link rel="shortcut icon" href="https://assets.pokemon.com/static2/_ui/img/favicon.ico" />
+
+    <style>
+        body{
+            font-family: 'Amarante';
+        }
+        .body{
+            background-image: url('/media/static/Background.jpg');
+            background-repeat: repeat;
+            background-size: 300px 300px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+            font-size: 6vw;
+            background-color: #bd2727;
+            color: #ecffee;
+            font-family: Verdana;
+        }
+        h2{
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2vw;
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+        }
+        h3{
+            text-align: center;
+            font-size: 2.6vw;
+            margin-top: 20px;
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+        }
+        h5{
+            text-align: center;
+            font-size: 40px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            color: #bd2727;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .box img{
+            height: 300px;
+            width: 300px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            align-center;
+        }
+        h4{
+            font-size: 40px;
+            margin-left: 40px;
+            margin-right: 40px;
+            margin-top: 180px;
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+        }
+        .button{
+            border-radius: 25px;
+            border: 4px solid #bd2727;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .button:hover{
+            transform: scale(1.05);
+            box-shadow:0 0 15px black;
+        }
+        a {
+            color:orange;
+            text-decoration:none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="body">
+    <a href="{% url 'leaderboard' %}" target="_blank" title="LeaderBoard"><h1>POKéMASH</h1></a>
+    <h2>Choose the better Pokémon. May the best one win!</h2>
+    <!-- <h3>Who's stronger? Click to choose.</h3> -->
+    <form method="POST"> {% csrf_token %}
+        <div class="box">
+            <button class="button" formaction="/check" name="img" value="{{img1}}"><img src="/media/{{img1}}" alt="image1">
+            <h5>{{name1}}</h5>
+                <h5>{{rating1}}</h5>
+            </button>
+            <h4>OR</h4>
+            <button class="button" formaction="/check" name="img" value="{{img2}}"><img src="/media/{{img2}}" alt="image2">
+            <h5>{{name2}}</h5>
+                <h5>{{rating2}}</h5>
+            </button>
+        </div>
+    </form>
+    <br><br><br><br><br><br>
+    </div>
+</body>
+
+</html>
