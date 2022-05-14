@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mb2qj7ykesaojw4u4az!)gutmrj0qxqf9a3+e+!w#%8w(d35z$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1:8000']
+ALLOWED_HOSTS = ['127.0.0.1:8000','pokemash2.herokuapp.com']
 
 
 # Application definition
