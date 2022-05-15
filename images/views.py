@@ -23,17 +23,18 @@ def NewRating(r1, r2, n):
     return int(n1)
 
 def index(request):
-    global img1, img2
+    global img1, img2, key
     img1, img2 = Random_image()
     data = {'name1':img1['name'], 'img1':img1['img'], 'rating1':img1['rating'], 'name2':img2['name'], 'img2':img2['img'], 'rating2':img2['rating']}
+    key=0
     return render(request, 'index.html',data)
 
 def check(request):
     global img1, img2, key
     if(key==1):
+        key=0
         img1, img2 = Random_image()
         data = {'name1': img1['name'], 'img1': img1['img'], 'rating1': img1['rating'], 'name2': img2['name'], 'img2': img2['img'], 'rating2': img2['rating']}
-        key=0
     else:
         key=1
         if request.method == "POST":
